@@ -112,11 +112,11 @@ do
 
   -- Gets called only once to parse everything out for the vimgrep, after that looks up directly.
   local parse = function(t)
-    local _, _, filename, lnum, col, text = string.find(t.value, [[(..-):(%d+):(%d+):(.*)]])
+    local _, _, filename, lnum, col, text = string.find(t.value, [[(..-)::(%d+)::(%d+)::(.*)]])
 
     -- in case of context lines
     if filename == nil then
-      _, _, filename, lnum, text = string.find(t.value, [[(..-)::(%d+)::(.*)]])  
+      _, _, filename, lnum, text = string.find(t.value, [[(..-):::(%d+):::(.*)]])  
     end
 
     local ok
