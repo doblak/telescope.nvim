@@ -606,7 +606,7 @@ append(
 
 append(
   "vimgrep_arguments",
-  { "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
+  { "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--no-context-separator", "--field-context-separator=::" },
   [[
     Defines the command that will be used for `live_grep` and `grep_string`
     pickers.
@@ -624,6 +624,8 @@ append(
       "--line-number",
       "--column",
       "--smart-case"
+      "--no-context-separator"
+      "--field-context-separator=::"
     }]]
 )
 

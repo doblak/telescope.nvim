@@ -114,6 +114,11 @@ do
   local parse = function(t)
     local _, _, filename, lnum, col, text = string.find(t.value, [[(..-):(%d+):(%d+):(.*)]])
 
+    -- in case of context lines
+    if filename == nil then
+      _, _, filename, lnum, text = string.find(t.value, [[(..-)::(%d+)::(.*)]])  
+    end
+
     local ok
     ok, lnum = pcall(tonumber, lnum)
     if not ok then
